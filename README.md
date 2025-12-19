@@ -1,1 +1,1 @@
-# daily-coding
+This repo features the things which I code daily
