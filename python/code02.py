@@ -15,6 +15,12 @@ def sum_of_digits(n):
         return 0
     return (n % 10) + sum_of_digits(n // 10)
 
+# Factorial of a number
+def fact(n):
+    if n == 0:
+        return 1
+    return n * fact(n - 1)
+
 # User-input validator
 def validate_number(user_input):
     try:
@@ -28,7 +34,7 @@ def validate_number(user_input):
 print("\ncode02/Aeon")
 while True:
     print("\n------------ Menu ------------")
-    print(" 1. Nth term of Fibonacci series\n 2. Sum of digits\n 3. Exit\n")
+    print(" 1. Nth term of Fibonacci series\n 2. Sum of digits\n 3. Factorial\n 4. Exit\n")
     choice = input("Enter your choice: ")
     match choice:
         case '1':
@@ -47,13 +53,24 @@ while True:
             num = input("Enter number: ")
             validated_num = validate_number(num)
 
-            # Validate numebr
+            # Validate number
             if validated_num == None:
                 continue
 
             print(f"Sum of digits of {validated_num} is {sum_of_digits(validated_num)}.")
 
         case '3':
+            # Factorial function test
+            num = input("Enter number: ")
+            validated_num = validate_number(num)
+
+            # Validate number
+            if validated_num == None:
+                continue
+
+            print(f"Sum of digits of {validated_num} is {fact(validated_num)}.")
+
+        case '4':
             # Exit the code
             print("Exiting...")
             break
