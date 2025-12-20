@@ -15,6 +15,14 @@ def sum_of_digits(n):
         return 0
     return (n % 10) + sum_of_digits(n // 10)
 
+# User-input validator
+def validate_number(user_input):
+    try:
+        return int(user_input)
+    except ValueError:
+        print("Invalid input. PLease enter an integer.")
+        return
+
 # ------------ Main ------------
 
 print("\ncode02/Aeon")
@@ -25,13 +33,25 @@ while True:
     match choice:
         case '1':
             # Fibonacci series function test
-            n_th = int(input("Enter term number: "))
-            print(f"{n_th}th term of the Fibonacci series is: {fibo(n_th)}.")
+            n_th = input("Enter term number: ")
+            validated_term = validate_number(n_th)
+
+            # Validate term
+            if validated_term == None:
+                continue
+
+            print(f"{validated_term}th term of the Fibonacci series is: {fibo(validated_term)}.")
 
         case '2':
             # Sum of digits function test
-            num = int(input("Enter number: "))
-            print(f"Sum of digits of {num} is {sum_of_digits(num)}.")
+            num = input("Enter number: ")
+            validated_num = validate_number(num)
+
+            # Validate numebr
+            if validated_num == None:
+                continue
+
+            print(f"Sum of digits of {validated_num} is {sum_of_digits(validated_num)}.")
 
         case '3':
             # Exit the code
